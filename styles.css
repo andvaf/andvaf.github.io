@@ -1,0 +1,124 @@
+/* Estilos modernos y vibrantes para la página de autos */
+
+/* Estilo global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f5; /* Azul celeste claro */
+    color: #333;
+}
+
+/* Estilo para el encabezado */
+header {
+    background-color: #6c5ce7; /* Lila */
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para la barra de navegación */
+nav {
+    background-color: #6c5ce7; /* Lila */
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #4834d4; /* Azul más oscuro */
+}
+
+/* Estilo para el contenido principal */
+main {
+    padding: 20px;
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Estilo para las secciones */
+section#cars {
+    margin-top: 20px;
+}
+
+.car-type {
+    margin-bottom: 30px;
+}
+
+/* Estilo para los autos individuales */
+.car {
+    display: flex;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.car img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.car-details {
+    flex: 1;
+}
+
+.car-details h4 {
+    margin-top: 0;
+    color: #6c5ce7; /* Lila */
+}
+
+.car-details p {
+    margin: 10px 0;
+    color: #555;
+}
+
+.car-details button.select-option {
+    background-color: #4834d4; /* Azul más oscuro */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.car-details button.select-option:hover {
+    background-color: #6c5ce7; /* Lila */
+}
+
+/* Estilo para el pie de página */
+footer {
+    background-color: #6c5ce7; /* Lila */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    clear: both;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
