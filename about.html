@@ -1,10 +1,167 @@
 <!DOCTYPE html>
 <html lang="es">
-<head> <link rel="stylesheet" href="styles4.css">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca de Nosotros</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F3E5F5;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            background-color: #D1C4E9;
+            padding: 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: #4A148C;
+            margin: 0;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: #6A1B9A;
+            margin: 0;
+        }
+
+        /* Menú de navegación */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4A148C;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #6A1B9A;
+            border-radius: 5px;
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #4A148C;
+            margin-bottom: 15px;
+        }
+        
+        h3 {
+            font-size: 1.5em;
+            color: #6A1B9A;
+        }
+
+        /* Galería */
+        .gallery {
+            position: relative;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        
+        .gallery-container {
+            overflow: hidden;
+        }
+        
+        .gallery-slide {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-slide img {
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s;
+            background-color: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+        
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #4A148C;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            header p {
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            nav ul {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 8px;
+            }
+            .gallery-slide img {
+                aspect-ratio: 1/1; /* Cambia a cuadrado en pantallas pequeñas */
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -16,10 +173,10 @@
 <nav>
     <ul>
         <li><a href="index.html">Inicio</a></li>
-            <li><a href="about.html">Acerca de Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="material.html">Material de Apoyo</a></li>
-            <li><a href="terapias.html">Terapias</a></li>
+        <li><a href="about.html">Acerca de Nosotros</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="material.html">Material de Apoyo</a></li>
+        <li><a href="terapias.html">Terapias</a></li>
     </ul>
 </nav>
 
@@ -40,7 +197,7 @@
         <!-- Galería de fotos deslizante -->
         <div class="gallery">
             <div class="gallery-container">
-                <div class="gallery-slide">
+                <div class="gallery-slide" id="slideContainer">
                     <img src="https://2873777.fs1.hubspotusercontent-na1.net/hub/2873777/hubfs/Dolr.jpg?width=950&name=Dolr.jpg" alt="Imagen 1">
                     <img src="https://mentalhealthcommission.ca/wp-content/uploads/2023/01/Foundry606-1024x617.jpg" alt="Imagen 2">
                     <img src="https://www.mentalhealthfirstaid.org/wp-content/uploads/2018/07/shutterstock_559521646.jpg" alt="Imagen 3">
@@ -58,10 +215,11 @@
 
 <script>
     let slideIndex = 0;
-    const slides = document.querySelector('.gallery-slide').children;
-    const totalSlides = slides.length;
 
     function showSlides(n) {
+        const slides = document.querySelector('.gallery-slide').children;
+        const totalSlides = slides.length;
+
         if (n >= totalSlides) {
             slideIndex = 0;
         } else if (n < 0) {
@@ -69,6 +227,7 @@
         } else {
             slideIndex = n;
         }
+
         for (let i = 0; i < totalSlides; i++) {
             slides[i].style.display = "none";
         }
