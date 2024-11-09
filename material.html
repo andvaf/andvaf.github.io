@@ -1,11 +1,137 @@
 <!doctype html>
 <html lang="es">
-<head> <link rel="stylesheet" href="styles2.css">
+<head>
+    <link rel="stylesheet" href="styles2.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Material de Apoyo - Psicosocial</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F3E5F5;
+            color: #333;
+        }
+        
+        header {
+            text-align: center;
+            background-color: #D1C4E9;
+            padding: 20px;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            color: #4A148C;
+            margin: 0;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            color: #6A1B9A;
+            margin: 0;
+        }
+
+        /* Menú de navegación centrado */
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #4A148C;
+            padding: 10px 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #6A1B9A;
+            border-radius: 5px;
+        }
+
+        /* Contenido principal */
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: 2em;
+            color: #4A148C;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos de los servicios */
+        .service {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .service img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+        }
+
+        .service-details {
+            margin-left: 20px;
+            text-align: left;
+        }
+
+        .service-details h3 {
+            color: #4A148C;
+        }
+
+        .service-details p {
+            font-size: 1.2em;
+            color: #6A1B9A;
+        }
+
+        .add-to-cart {
+            background-color: #4A148C;
+            color: white;
+            padding: 10px 15px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #6A1B9A;
+        }
+
+        /* Estilos del pie de página */
+        footer {
+            background-color: #4A148C;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 1.1em;
+        }
+        
+    </style>
 </head>
 <body>
     <header>
@@ -15,7 +141,7 @@
 
     <nav>
         <ul>
-             <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="about.html">Acerca de Nosotros</a></li>
             <li><a href="contacto.html">Contacto</a></li>
             <li><a href="material.html">Material de Apoyo</a></li>
@@ -73,6 +199,8 @@
             </div>
 
         </section>
+    </main>
+
     <footer>
         <p>PSYCHO-ORIENTING &copy; 2024. Todos los derechos reservados.</p>
     </footer>
