@@ -22,36 +22,30 @@
             padding: 10px;
             text-align: center;
         }
+        
+        /* Menú principal */
         .menu {
             background-color: #A667E3;
             color: white;
-            width: 10%;
-            height: calc(100vh - 100px);
-            box-sizing: flex;
-            text-align: center;
-            padding-center: 9px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+            list-style: none;
         }
+        
         .menu a {
             color: white;
             text-decoration: none;
-            display: inline-block;
-            padding: 12px;
-        }
-        .menu a:hover {
-            background-color: #004a73;
-        }
-        .contenido {
-            background-color: #E6D5F6;
-            color: black;
-            float: none;
-            width: 80%;
-            height: calc(100vh - 100px);
-            box-sizing: border-box;
-            text-align: center;
-            padding-left: 10px;
+            padding: 10px 15px;
         }
         
-         /* Estilos específicos para la galería */
+        .menu a:hover {
+            background-color: #004a73;
+            border-radius: 5px;
+        }
+        
+        /* Estilos específicos para la galería */
         .gallery {
             display: flex;
             flex-wrap: wrap;
@@ -82,7 +76,8 @@
         .gallery-item img:hover, .gallery-item video:hover {
             transform: scale(1.1);
         }
-         /* Estilos para la sección de testimonios */
+        
+        /* Estilos para la sección de testimonios */
         .testimonials {
             margin-top: 10px;
         }
@@ -104,79 +99,107 @@
         .testimonial-text {
             max-width: 300px;
         }
+        
         /* Estilos para el logo */
         .logo {
             width: 100px;
             height: 80px;
+        }
 
-              /* Estilo para el pie de página */
-footer {
-    background-color: #6c5ce7; /* Lila */
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    clear: both;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
+        /* Estilo para el pie de página */
+        footer {
+            background-color: #6c5ce7; /* Lila */
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            clear: both;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media query para dispositivos móviles */
+        @media (max-width: 768px) {
+            .menu {
+                flex-direction: column;
+                display: none; /* Oculta el menú horizontal */
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #A667E3;
+                text-align: center;
+                gap: 0;
+            }
+            
+            .menu a {
+                display: block;
+                padding: 12px;
+            }
+            
+            /* Botón para menú desplegable */
+            .menu-toggle {
+                display: inline-block;
+                cursor: pointer;
+                font-size: 24px;
+                padding: 10px;
+                background-color: #A667E3;
+                color: white;
+            }
+
+            /* Muestra el menú cuando esté activo */
+            .menu.active {
+                display: flex;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="encabezado">
          <img src="logo.png" alt="MEGA AUTOS DE SANTANDER" class="logo">
         <h1><center>PSYCHO-ORIENTING</center></h1>
-        <p><CENTER>
-          <em>Tu salud mental, nuestro compromiso.</em>
-        </CENTER></p>
+        <p><center><em>Tu salud mental, nuestro compromiso.</em></center></p>
     </div>
-    <div class="menu">
-        <h2><CENTER>MENÚ</CENTER></h2>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰ Menú</div>
+    <ul class="menu">
        <li><a href="index.html">Inicio</a></li>
-            <li><a href="about.html">Acerca de Nosotros</a></li>
-            <li><a href="contacto.html">Contacto</a></li>
-            <li><a href="terapias.html">Terapias</a></li>
-            <li><a href="material.html">Material de Apoyo</a></li>
-    </div>
+       <li><a href="about.html">Acerca de Nosotros</a></li>
+       <li><a href="contacto.html">Contacto</a></li>
+       <li><a href="terapias.html">Terapias</a></li>
+       <li><a href="material.html">Material de Apoyo</a></li>
+    </ul>
+
     <div class="contenido">
       <main>
-    <section id="special-offers">
-        <h2>Mensaje del día</h2>
-        <!-- Aquí irían los mensajes diarios -->
+        <section id="special-offers">
+            <h2>Mensaje del día</h2>
             <div class="gallery">
-            <!-- Ejemplos de elementos de la galería -->
-            <div class="gallery-item">
-                <img src="https://static-cse.canva.com/blob/697602/SelfEsteemQutoesQuotesMX1.png" alt="Imagen 1">
+                <div class="gallery-item">
+                    <img src="https://static-cse.canva.com/blob/697602/SelfEsteemQutoesQuotesMX1.png" alt="Imagen 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://motivaciondiaria.net/wp-content/uploads/2024/03/Frases-profundamente-motivacionales.jpg" alt="Imagen 2">
+                </div>
             </div>
-            <div class="gallery-item">
-                <img src="https://motivaciondiaria.net/wp-content/uploads/2024/03/Frases-profundamente-motivacionales.jpg" alt="Imagen 2">
+        </section>
+        <section id="testimonios">
+            <h2>Testimonios de Clientes</h2>
+            <div class="testimonial">
+                <blockquote>"Excelente servicio. He progresado y mejorado mucho con mi patología."</blockquote>
+                <p> <img src="cliente1.jpg"> <strong>Marta Gómez</strong>, Bucaramanga</p>
             </div>
-            <div class="gallery-item">
-                <video src="<iframe width="560" height="315" src="https://www.youtube.com/embed/dh-OPuaLTMY?si=YMDdQGTdIehVnmiu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>></video>
-            </div>
-        </div>
-    </section>
-
-           <!-- Sección de Testimonios -->
-           <section id="testimonios">
-               <h2>Testimonios de Clientes</h2>
-               <div class="testimonial">
-                   <blockquote>
-                       "Excelente servicio. He progresado y mejorado mucho con mi patología."
-                   </blockquote>
-                   <p> <img src="cliente1.jpg"> <strong>Marta Gómez</strong>, Bucaramanga</p>
-               </div>
-               <div class="testimonial">
-                   <blockquote>
-                       "Una experiencia única, he aprendido a perdonarme y avanzar."
-                   </blockquote>
-                   <p><img src="cliente2.jpg"> <strong>Juan Pérez</strong>, Santander</p>
-               </div>
-           </section>
-
+        </section>
        </main>
-          </div>
+    </div>
 
     <footer>
-              <p>PSYCHO-ORIENTING &copy; 2024. Todos los derechos reservados.</p>
-          </footer>
+        <p>PSYCHO-ORIENTING &copy; 2024. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
