@@ -7,42 +7,49 @@
     <style>
         /* Estilos básicos para las capas */
         body {
-            font-family: Arial, sans-serif,"Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", "sans-serif";
+            font-family: Arial, sans-serif, "Gill Sans", "Gill Sans MT", "Myriad Pro", "DejaVu Sans Condensed", sans-serif;
             margin: 0;
-            padding: 2;
+            padding: 0;
             background-color: #D3ABFA;
         }
-        .encabezado, .menu, .contenido, .footer {
-            padding: 13px;
+        .encabezado, .contenido, .footer {
+            padding: 15px;
             text-align: center;
         }
         .encabezado {
             background-color: #A667E3;
             color: white;
-            padding: 10px;
             text-align: center;
         }
-        
-        /* Menú principal */
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Menú horizontal */
         .menu {
             background-color: #A667E3;
-            color: white;
+            padding: 10px 0;
             display: flex;
             justify-content: center;
             gap: 15px;
-            padding: 10px;
-            list-style: none;
         }
-        
         .menu a {
             color: white;
             text-decoration: none;
             padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        
         .menu a:hover {
             background-color: #004a73;
-            border-radius: 5px;
+        }
+
+        .contenido {
+            background-color: #E6D5F6;
+            color: black;
+            text-align: center;
+            padding: 20px;
         }
         
         /* Estilos específicos para la galería */
@@ -51,164 +58,135 @@
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
-            margin-top: 40px;
+            margin-top: 20px;
         }
-
         .gallery-item {
-            width: calc(31% - 40px);
-            padding-bottom: calc(30% - 40px);
+            width: 100%;
+            max-width: 250px;
+            padding-bottom: calc(56.25%); /* Aspect ratio 16:9 */
             position: relative;
-            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
-
-        .gallery-item img, .gallery-item iframe {
+        .gallery-item iframe {
+            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease-in-out;
+            top: 0;
+            left: 0;
         }
 
-        .gallery-item img:hover, .gallery-item iframe:hover {
-            transform: scale(1.1);
-        }
-
-        /* Estilos para testimonios en slider */
-        .testimonial-slider {
-            position: relative;
-            width: 80%;
-            margin: 20px auto;
+        /* Estilos para la sección de testimonios con efecto carrusel */
+        .testimonials {
+            margin-top: 20px;
             overflow: hidden;
-            border-radius: 10px;
-            background-color: #E6D5F6;
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
         }
-
         .testimonial-container {
             display: flex;
             transition: transform 0.5s ease;
         }
-
         .testimonial {
             flex: 0 0 100%;
-            padding: 20px;
             box-sizing: border-box;
-            text-align: left;
+            padding: 15px;
+            text-align: center;
         }
-
         .testimonial img {
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            margin-right: 20px;
+            width: 60px;
+            height: 60px;
             object-fit: cover;
-            vertical-align: middle;
+            margin-bottom: 10px;
         }
-
-        .testimonial-info {
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .controls {
-            position: absolute;
-            top: 50%;
-            width: 100%;
+        .testimonial-controls {
             display: flex;
-            justify-content: space-between;
-            transform: translateY(-50%);
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .testimonial-controls button {
+            padding: 8px;
+            border: none;
+            background-color: #A667E3;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
         }
 
-        .control {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            border: none;
-            font-size: 18px;
-        }
-        
         /* Estilo para el pie de página */
         footer {
             background-color: #6c5ce7;
             color: white;
             text-align: center;
             padding: 15px 0;
+            clear: both;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
     <div class="encabezado">
-         <img src="logo.png" alt="MEGA AUTOS DE SANTANDER" class="logo">
-        <h1><center>PSYCHO-ORIENTING</center></h1>
-        <p><center><em>Tu salud mental, nuestro compromiso.</em></center></p>
+        <img src="logo.png" alt="MEGA AUTOS DE SANTANDER" class="logo">
+        <h1>PSYCHO-ORIENTING</h1>
+        <p><em>Tu salud mental, nuestro compromiso.</em></p>
     </div>
-
-    <div class="menu-toggle" onclick="toggleMenu()">☰ Menú</div>
-    <ul class="menu">
-       <li><a href="index.html">Inicio</a></li>
-       <li><a href="about.html">Acerca de Nosotros</a></li>
-       <li><a href="contacto.html">Contacto</a></li>
-       <li><a href="terapias.html">Terapias</a></li>
-       <li><a href="material.html">Material de Apoyo</a></li>
-    </ul>
+    
+    <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="about.html">Acerca de Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="terapias.html">Terapias</a>
+        <a href="material.html">Material de Apoyo</a>
+    </nav>
 
     <div class="contenido">
-      <main>
-        <!-- Galería con imágenes y videos de YouTube -->
-        <section id="special-offers">
-            <h2>Galería Motivacional</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="https://static-cse.canva.com/blob/697602/SelfEsteemQutoesQuotesMX1.png" alt="Imagen 1">
+        <main>
+            <section id="special-offers">
+                <h2>Mensaje del día</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <iframe src="https://www.youtube.com/embed/dh-OPuaLTMY" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item">
+                        <iframe src="https://www.youtube.com/embed/EXnPfj-KSp8" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item">
+                        <iframe src="https://www.youtube.com/embed/Xn5zDu4_Bqk" frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://motivaciondiaria.net/wp-content/uploads/2024/03/Frases-profundamente-motivacionales.jpg" alt="Imagen 2">
-                </div>
-                <div class="gallery-item">
-                    <iframe src="https://www.youtube.com/embed/dh-OPuaLTMY" title="Video de motivación 1" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <div class="gallery-item">
-                    <iframe src="https://www.youtube.com/embed/2qO2cGmMW9A" title="Video de proyecto de vida" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Testimonios con slider -->
-        <section id="testimonios">
-            <h2>Testimonios de Clientes</h2>
-            <div class="testimonial-slider">
+            <!-- Sección de Testimonios -->
+            <section id="testimonios" class="testimonials">
+                <h2>Testimonios de Clientes</h2>
                 <div class="testimonial-container" id="testimonialContainer">
                     <div class="testimonial">
-                        <div class="testimonial-info">
-                            <img src="cliente1.jpg" alt="Marta Gómez">
-                            <strong>Marta Gómez, Bucaramanga</strong>
-                        </div>
+                        <img src="cliente1.jpg" alt="Cliente 1">
                         <blockquote>"Excelente servicio. He progresado y mejorado mucho con mi patología."</blockquote>
+                        <p><strong>Marta Gómez</strong>, Bucaramanga</p>
                     </div>
                     <div class="testimonial">
-                        <div class="testimonial-info">
-                            <img src="cliente2.jpg" alt="Juan Pérez">
-                            <strong>Juan Pérez, Santander</strong>
-                        </div>
+                        <img src="cliente2.jpg" alt="Cliente 2">
                         <blockquote>"Una experiencia única, he aprendido a perdonarme y avanzar."</blockquote>
+                        <p><strong>Juan Pérez</strong>, Santander</p>
                     </div>
                     <div class="testimonial">
-                        <div class="testimonial-info">
-                            <img src="cliente3.jpg" alt="Ana Rodríguez">
-                            <strong>Ana Rodríguez, Bogotá</strong>
-                        </div>
-                        <blockquote>"El mejor apoyo emocional que he tenido, altamente recomendado."</blockquote>
+                        <img src="cliente3.jpg" alt="Cliente 3">
+                        <blockquote>"El mejor apoyo emocional, altamente recomendado."</blockquote>
+                        <p><strong>Ana Rodríguez</strong>, Bogotá</p>
                     </div>
                 </div>
-                <div class="controls">
-                    <button class="control" onclick="prevSlide()">&#10094;</button>
-                    <button class="control" onclick="nextSlide()">&#10095;</button>
+                <div class="testimonial-controls">
+                    <button onclick="prevTestimonial()">❮</button>
+                    <button onclick="nextTestimonial()">❯</button>
                 </div>
-            </div>
-        </section>
-       </main>
+            </section>
+        </main>
     </div>
 
     <footer>
@@ -216,28 +194,22 @@
     </footer>
 
     <script>
-        let currentIndex = 0;
+        let currentTestimonialIndex = 0;
 
-        function showSlide(index) {
+        function showTestimonial(index) {
             const container = document.getElementById('testimonialContainer');
-            const slides = document.querySelectorAll('.testimonial');
-            if (index >= slides.length) currentIndex = 0;
-            if (index < 0) currentIndex = slides.length - 1;
-            container.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
+            const testimonials = document.querySelectorAll('.testimonial');
+            const totalTestimonials = testimonials.length;
+            currentTestimonialIndex = (index + totalTestimonials) % totalTestimonials;
+            container.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
         }
 
-        function nextSlide() {
-            currentIndex++;
-            showSlide(currentIndex);
+        function prevTestimonial() {
+            showTestimonial(currentTestimonialIndex - 1);
         }
 
-        function prevSlide() {
-            currentIndex--;
-            showSlide(currentIndex);
+        function nextTestimonial() {
+            showTestimonial(currentTestimonialIndex + 1);
         }
-
-        // Auto-slide
-        setInterval(nextSlide, 5000);
     </script>
 </body>
-</html>
