@@ -46,6 +46,7 @@
             margin: 0;
             display: flex;
             gap: 20px;
+            align-items: center;
         }
         
         nav a {
@@ -73,13 +74,52 @@
             margin-bottom: 15px;
         }
 
-        /* Sección de contacto */
+        /* Estilos para la sección de contacto */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #FFF;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto 20px;
+            color: #4A148C;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #6A1B9A;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            font-size: 1.1em;
+        }
+
+        .contact-details div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-details img {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Estilos de formulario */
         .contact-form {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 20px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
 
         .contact-form img {
@@ -183,18 +223,26 @@
 <main>
     <section id="contact">
         <h2>Contáctanos</h2>
-        <p>Estamos aquí para ayudarte. Puedes ponerte en contacto con nosotros a través de los siguientes medios:</p>
-        <ul>
-            <li><strong>Dirección:</strong> Calle 45 #32-01, Bucaramanga, Santander, Colombia</li>
-            <li><strong>Teléfono:</strong> <a href="tel:+5771234567">+57 7 123 4567</a></li>
-            <li><strong>Email:</strong> <a href="mailto:info@psychor.com">info@psychor.com</a></li>
-        </ul>
+        <div class="contact-info">
+            <p>Estamos aquí para ayudarte. Puedes ponerte en contacto con nosotros a través de los siguientes medios:</p>
+            <div class="contact-details">
+                <div>
+                    <img src="https://via.placeholder.com/24?text=📍" alt="Icono Dirección">
+                    <strong>Dirección:</strong> Calle 45 #32-01, Bucaramanga, Santander, Colombia
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/24?text=📞" alt="Icono Teléfono">
+                    <strong>Teléfono:</strong> <a href="tel:+5771234567" style="color: #4A148C;">+57 7 123 4567</a>
+                </div>
+                <div>
+                    <img src="https://via.placeholder.com/24?text=✉️" alt="Icono Email">
+                    <strong>Email:</strong> <a href="mailto:info@psychor.com" style="color: #4A148C;">info@psychor.com</a>
+                </div>
+            </div>
+        </div>
 
         <div class="contact-form">
-            <!-- Espacio para la imagen o ícono -->
             <img src="https://via.placeholder.com/150" alt="Ícono de contacto">
-
-            <!-- Formulario de contacto -->
             <form action="#" method="POST" onsubmit="submitForm(event)">
                 <div>
                     <label for="name">Nombre:</label>
