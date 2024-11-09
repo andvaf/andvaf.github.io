@@ -56,99 +56,85 @@
 
         .gallery-item {
             width: calc(31% - 40px);
-            padding-bottom: calc(30% - 40px); /* Mantiene la proporción cuadrada */
+            padding-bottom: calc(30% - 40px);
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .gallery-item img, .gallery-item video {
-            position: relative;
-            top: 0;
-            left: 0;
+        .gallery-item img, .gallery-item iframe {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease-in-out;
         }
 
-        .gallery-item img:hover, .gallery-item video:hover {
+        .gallery-item img:hover, .gallery-item iframe:hover {
             transform: scale(1.1);
         }
-        
-        /* Estilos para la sección de testimonios */
-        .testimonials {
-            margin-top: 10px;
+
+        /* Estilos para testimonios en slider */
+        .testimonial-slider {
+            position: relative;
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #E6D5F6;
+        }
+
+        .testimonial-container {
+            display: flex;
+            transition: transform 0.5s ease;
         }
 
         .testimonial {
-            display: grid;
-            align-items: center;
-            margin-bottom: 3px;
+            flex: 0 0 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
         }
 
         .testimonial img {
-            border-radius: 10%;
-            width: 40px;
-            height: 30px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
             margin-right: 20px;
             object-fit: cover;
+            vertical-align: middle;
         }
 
-        .testimonial-text {
-            max-width: 300px;
+        .testimonial-info {
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .control {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            font-size: 18px;
         }
         
-        /* Estilos para el logo */
-        .logo {
-            width: 100px;
-            height: 80px;
-        }
-
         /* Estilo para el pie de página */
         footer {
-            background-color: #6c5ce7; /* Lila */
+            background-color: #6c5ce7;
             color: white;
             text-align: center;
             padding: 15px 0;
-            clear: both;
             box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Media query para dispositivos móviles */
-        @media (max-width: 768px) {
-            .menu {
-                flex-direction: column;
-                display: none; /* Oculta el menú horizontal */
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100%;
-                background-color: #A667E3;
-                text-align: center;
-                gap: 0;
-            }
-            
-            .menu a {
-                display: block;
-                padding: 12px;
-            }
-            
-            /* Botón para menú desplegable */
-            .menu-toggle {
-                display: inline-block;
-                cursor: pointer;
-                font-size: 24px;
-                padding: 10px;
-                background-color: #A667E3;
-                color: white;
-            }
-
-            /* Muestra el menú cuando esté activo */
-            .menu.active {
-                display: flex;
-            }
         }
     </style>
 </head>
@@ -170,8 +156,9 @@
 
     <div class="contenido">
       <main>
+        <!-- Galería con imágenes y videos de YouTube -->
         <section id="special-offers">
-            <h2>Mensaje del día</h2>
+            <h2>Galería Motivacional</h2>
             <div class="gallery">
                 <div class="gallery-item">
                     <img src="https://static-cse.canva.com/blob/697602/SelfEsteemQutoesQuotesMX1.png" alt="Imagen 1">
@@ -179,13 +166,46 @@
                 <div class="gallery-item">
                     <img src="https://motivaciondiaria.net/wp-content/uploads/2024/03/Frases-profundamente-motivacionales.jpg" alt="Imagen 2">
                 </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/dh-OPuaLTMY" title="Video de motivación 1" frameborder="0" allowfullscreen></iframe>
+                </div>
+                <div class="gallery-item">
+                    <iframe src="https://www.youtube.com/embed/2qO2cGmMW9A" title="Video de proyecto de vida" frameborder="0" allowfullscreen></iframe>
+                </div>
             </div>
         </section>
+
+        <!-- Testimonios con slider -->
         <section id="testimonios">
             <h2>Testimonios de Clientes</h2>
-            <div class="testimonial">
-                <blockquote>"Excelente servicio. He progresado y mejorado mucho con mi patología."</blockquote>
-                <p> <img src="cliente1.jpg"> <strong>Marta Gómez</strong>, Bucaramanga</p>
+            <div class="testimonial-slider">
+                <div class="testimonial-container" id="testimonialContainer">
+                    <div class="testimonial">
+                        <div class="testimonial-info">
+                            <img src="cliente1.jpg" alt="Marta Gómez">
+                            <strong>Marta Gómez, Bucaramanga</strong>
+                        </div>
+                        <blockquote>"Excelente servicio. He progresado y mejorado mucho con mi patología."</blockquote>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-info">
+                            <img src="cliente2.jpg" alt="Juan Pérez">
+                            <strong>Juan Pérez, Santander</strong>
+                        </div>
+                        <blockquote>"Una experiencia única, he aprendido a perdonarme y avanzar."</blockquote>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-info">
+                            <img src="cliente3.jpg" alt="Ana Rodríguez">
+                            <strong>Ana Rodríguez, Bogotá</strong>
+                        </div>
+                        <blockquote>"El mejor apoyo emocional que he tenido, altamente recomendado."</blockquote>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="control" onclick="prevSlide()">&#10094;</button>
+                    <button class="control" onclick="nextSlide()">&#10095;</button>
+                </div>
             </div>
         </section>
        </main>
@@ -196,10 +216,28 @@
     </footer>
 
     <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.menu');
-            menu.classList.toggle('active');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            const container = document.getElementById('testimonialContainer');
+            const slides = document.querySelectorAll('.testimonial');
+            if (index >= slides.length) currentIndex = 0;
+            if (index < 0) currentIndex = slides.length - 1;
+            container.style.transform = 'translateX(' + (-currentIndex * 100) + '%)';
         }
+
+        function nextSlide() {
+            currentIndex++;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex--;
+            showSlide(currentIndex);
+        }
+
+        // Auto-slide
+        setInterval(nextSlide, 5000);
     </script>
 </body>
 </html>
