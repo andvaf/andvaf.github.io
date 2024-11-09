@@ -12,18 +12,27 @@
             padding: 0;
             background-color: #D3ABFA;
         }
-        .encabezado, .contenido, .footer {
-            padding: 15px;
-            text-align: center;
-        }
         .encabezado {
             background-color: #A667E3;
             color: white;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            gap: 15px;
         }
         .logo {
-            width: 100px;
+            width: 80px;
             height: auto;
+        }
+        .site-title {
+            font-size: 1.8em;
+            margin: 0;
+        }
+        .tagline {
+            font-size: 1em;
+            margin: 0;
+            font-style: italic;
         }
 
         /* Menú horizontal */
@@ -48,33 +57,31 @@
         .contenido {
             background-color: #E6D5F6;
             color: black;
-            text-align: center;
             padding: 20px;
+            text-align: center;
         }
-        
-        /* Estilos específicos para la galería */
+
+        /* Estilos para la galería */
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 10px;
             justify-content: center;
             margin-top: 20px;
         }
         .gallery-item {
-            width: 100%;
-            max-width: 250px;
-            padding-bottom: calc(56.25%); /* Aspect ratio 16:9 */
             position: relative;
+            overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+            aspect-ratio: 16/9;
         }
+        .gallery-item img,
         .gallery-item iframe {
-            position: absolute;
             width: 100%;
             height: 100%;
-            top: 0;
-            left: 0;
+            object-fit: cover;
+            border-radius: 10px;
         }
 
         /* Estilos para la sección de testimonios con efecto carrusel */
@@ -82,7 +89,6 @@
             margin-top: 20px;
             overflow: hidden;
             position: relative;
-            width: 100%;
             max-width: 600px;
             margin: auto;
         }
@@ -132,8 +138,10 @@
 <body>
     <div class="encabezado">
         <img src="logo.png" alt="MEGA AUTOS DE SANTANDER" class="logo">
-        <h1>PSYCHO-ORIENTING</h1>
-        <p><em>Tu salud mental, nuestro compromiso.</em></p>
+        <div>
+            <h1 class="site-title">PSYCHO-ORIENTING</h1>
+            <p class="tagline">Tu salud mental, nuestro compromiso.</p>
+        </div>
     </div>
     
     <nav class="menu">
@@ -149,6 +157,15 @@
             <section id="special-offers">
                 <h2>Mensaje del día</h2>
                 <div class="gallery">
+                    <!-- Imágenes en la galería -->
+                    <div class="gallery-item">
+                        <img src="https://static-cse.canva.com/blob/697602/SelfEsteemQutoesQuotesMX1.png" alt="Imagen 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://motivaciondiaria.net/wp-content/uploads/2024/03/Frases-profundamente-motivacionales.jpg" alt="Imagen 2">
+                    </div>
+
+                    <!-- Videos de YouTube en la galería -->
                     <div class="gallery-item">
                         <iframe src="https://www.youtube.com/embed/dh-OPuaLTMY" frameborder="0" allowfullscreen></iframe>
                     </div>
@@ -157,6 +174,9 @@
                     </div>
                     <div class="gallery-item">
                         <iframe src="https://www.youtube.com/embed/Xn5zDu4_Bqk" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="gallery-item">
+                        <iframe src="https://www.youtube.com/embed/4pU0pmbJ8aI" frameborder="0" allowfullscreen></iframe>
                     </div>
                 </div>
             </section>
@@ -213,3 +233,4 @@
         }
     </script>
 </body>
+</html>
